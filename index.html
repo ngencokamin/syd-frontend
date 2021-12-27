@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--
+	Lens by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Syd Kilroy</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+    <link rel="stylesheet" href="custom.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+    />
+  </head>
+  <body class="is-preload-0 is-preload-1 is-preload-2">
+    <!-- Main -->
+    <div id="main">
+      <!-- Header -->
+      <header id="header">
+        <h1>{{text.header}}</h1>
+        <!-- <p>Model, convicted arsonist, lorem ipsum dolor sit amet.</p> -->
+        <p>{{text.description}}</p>
+        <ul class="icons">
+          <li>
+            <a href="#" class="icon brands fa-twitter"
+              ><span class="label">Twitter</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon brands fa-instagram"
+              ><span class="label">Instagram</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon brands fa-github"
+              ><span class="label">Github</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon fa-envelope"
+              ><span class="label">Email</span></a
+            >
+          </li>
+        </ul>
+      </header>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="aboutModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="aboutModalTitle"
+        aria-hidden="true"
+        style="backdrop-filter: blur(2px)"
+      >
+        <div
+          class="modal-dialog modal-dialog-centered modal-xl"
+          role="document"
+        >
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h2 class="modal-title w-100" id="aboutModalTitle">About Me</h2>
+
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- <div class="container-fluid">
+									<div class="row"> -->
+              <p align="center" style="white-space: pre-line">{{text.about}}</p>
+
+              <!-- </div> -->
+              <!-- </div> -->
+            </div>
+            <div class="modal-header text-center">
+              <h2 class="modal-title w-100" id="resumeModalTitle">Resumé</h2>
+            </div>
+            <br />
+            <span v-for="(item, index) in orderBy(resume, 'index', -1)">
+              <br />
+              <div class="container-fluid">
+                <div class="row">
+                  <p class="col" align="left">
+                    <span style="font-weight: bold">{{item.title}},</span>
+                    {{item.employer}}
+                  </p>
+                  <p class="col" style="font-weight: bold" align="right">
+                    {{item.dates}}
+                  </p>
+                </div>
+                <div class="row">
+                  <p class="col" align="left">{{item.desc}}</p>
+                </div>
+              </div>
+              <br v-if="index != resume.length - 1" />
+              <hr
+                style="width: 60%; margin: auto"
+                v-if="index != resume.length - 1"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thumbnail -->
+      <section id="thumbnails">
+        <article v-if="photos.length == 0">
+          <a
+            href="./images/placeholder.jpg"
+            class="thumbnail"
+            data-position="left center"
+            ><img src="./images/placeholder.jpg"
+          /></a>
+        </article>
+        <article v-else v-for="photo in orderBy(photos, 'index')">
+          <a
+            class="thumbnail"
+            v-bind:href="photo.image_url"
+            data-position="left center"
+            ><img v-bind:src="photo.image_url" alt=""
+          /></a>
+          <h2>{{ photo.title }}</h2>
+          <p>{{photo.desc}}</p>
+        </article>
+      </section>
+
+      <!-- Footer -->
+      <footer id="button">
+        <button
+          class="button large animated bounceInUp"
+          type="button"
+          data-toggle="modal"
+          data-target="#aboutModal"
+        >
+          About Me & Resumé
+        </button>
+      </footer>
+      <footer id="footer">
+        <ul class="copyright">
+          <li>&copy; Syd Kilroy.</li>
+          <li>Design: <a href="http://html5up.net">HTML5 UP</a>.</li>
+        </ul>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
+      integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuex"></script>
+    <script src="./script.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

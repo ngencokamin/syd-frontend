@@ -1,0 +1,22 @@
+.modal-content {
+    background-color: #282a36;
+}
+
+img {
+    height: 100%;
+}
+
+#button {
+	z-index: 5;
+    padding: 2.25em 2.25em 1em 2.25em ;
+		position: fixed;
+		bottom: 0px;
+		right: 3vw;
+		left: 5%;
+		margin-bottom: 0px;
+		padding-bottom: 0px;
+}
+
+#button > button {
+	margin-bottom: 5vh;
+}
