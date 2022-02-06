@@ -1,5 +1,11 @@
 .modal-content {
-    background-color: #282a36;
+    /* background-color: #282a36; */
+	background-color: #ffffff;
+	color: black;
+}
+
+span, .row > p, #aboutModalTitle, #resumeModalTitle, .modal-body > p{
+	color:black;
 }
 
 img {

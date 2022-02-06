@@ -430,7 +430,15 @@ var main = (function($) { var _ = {
  							// Set background stuff.
 	 							s.$slideImage
 		 							.css('background-image', '')
-		 							.css('background-position', ($thumbnail.data('position') || 'center'));
+		 							// .css('background-position', ($thumbnail.data('position') || 'center'));
+									 .css(
+										"background-size",
+										"auto 100%"
+									  )
+									  .css(
+										"background-position",
+										"center"
+									  );
 
 						// Caption.
 							s.$slideCaption = s.$slide.find('.caption');

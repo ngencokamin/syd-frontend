@@ -88,6 +88,15 @@ const vueApp = new Vue({
         "background-image",
         "url(" + firstPhoto.image_url + ")"
       );
+      main.current = 1
+      // newSlide.$slideImage.css(
+      //   "background-size",
+      //   "auto 100%"
+      // );
+      // newSlide.$slideImage.css(
+      //   "background-position",
+      //   "center"
+      // );
 
       // main.newSlide.$slide.addClass('loading');
     },
