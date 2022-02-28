@@ -1,5 +1,4 @@
 .modal-content {
-    /* background-color: #282a36; */
 	background-color: #ffffff;
 	color: black;
 }
@@ -25,4 +24,8 @@ img {
 
 #button > button {
 	margin-bottom: 5vh;
+}
+
+#thumbnails > article {
+	background-color: transparent;
 }

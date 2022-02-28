@@ -1,5 +1,5 @@
 axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "https://syd-kilroy-api.herokuapp.com/";
 
 const vueApp = new Vue({
   el: "#main",
@@ -14,9 +14,6 @@ const vueApp = new Vue({
   },
   created: function () {
     this.indexPhotos();
-    // var imported = document.createElement('script');
-    // imported.src = 'assets/js/main.js';
-    // document.head.appendChild(imported);
   },
   onload: function () {},
   methods: {
@@ -89,16 +86,6 @@ const vueApp = new Vue({
         "url(" + firstPhoto.image_url + ")"
       );
       main.current = 1
-      // newSlide.$slideImage.css(
-      //   "background-size",
-      //   "auto 100%"
-      // );
-      // newSlide.$slideImage.css(
-      //   "background-position",
-      //   "center"
-      // );
-
-      // main.newSlide.$slide.addClass('loading');
     },
   },
 });
