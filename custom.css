@@ -29,3 +29,12 @@ img {
 #thumbnails > article {
 	background-color: transparent;
 }
+.thumbnail {
+	height: 100%;
+}
+.thumbnail > img {
+	background-color: transparent;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
