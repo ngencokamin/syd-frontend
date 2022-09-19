@@ -132,7 +132,7 @@
             ><img src="./images/placeholder.jpg"
           /></a>
         </article>
-        <article v-else v-for="photo in orderBy(photos, 'index')">
+        <article v-else v-for="photo in orderBy(currentPhotos, 'index')">
           <a
             class="thumbnail"
             v-bind:href="photo.image_url"

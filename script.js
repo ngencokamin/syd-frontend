@@ -9,18 +9,36 @@ const vueApp = new Vue({
     textLoaded: false,
     resumeLoaded: false,
     photos: [],
+    currentPhotos: [],
+    photoIndex: 0,
     resume: [],
     text: {},
   },
   created: function () {
     this.indexPhotos();
+    
   },
-  onload: function () {},
+  onload: function () {
+  },
   methods: {
     indexPhotos: function () {
       axios.get("/api/photos").then((response) => {
         console.log("photos index", response);
-        this.photos = response.data;
+        let unfiltered = response.data;
+        let ordered = unfiltered.sort((a, b) => a["index"] - b["index"])
+        let tmp = []
+        for (let i = 0; i < ordered.length; i++) {
+          if (tmp.length > 0 && tmp.length % 6 === 0 || i === ordered.length - 1) {
+            this.photos.push(tmp)
+            tmp = []
+          }
+          else {
+            tmp.push(ordered[i])
+          }
+        }
+        // console.log("photos", this.photos)
+        this.currentPhotos = this.photos[0]
+        // console.log(this.photos[0])
         this.getText();
       });
     },
@@ -72,7 +90,7 @@ const vueApp = new Vue({
     },
 
     fixSlide: function () {
-      let firstPhoto = this.photos.find((photo) => photo.index === 1);
+      let firstPhoto = this.currentPhotos.find((photo) => photo.index === 1);
       var oldSlide = main.current !== null ? main.slides[main.current] : null,
         newSlide = main.slides[1];
       oldSlide.$parent.removeClass("active");
@@ -87,5 +105,10 @@ const vueApp = new Vue({
       );
       main.current = 1
     },
+
+    currentArr: function () {
+      console.log(this.photos)
+      this.currentPhotos = this.photos[this.photoIndex]
+    }
   },
 });
