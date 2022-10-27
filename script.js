@@ -1,6 +1,20 @@
 axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 axios.defaults.baseURL = "https://syd-kilroy-api.herokuapp.com/";
 
+
+// httpVueLoader.httpRequest = function(url) {
+    
+//   return axios.get(url)
+//   .then(function(res) {
+      
+//       return res.data;
+//   })
+//   .catch(function(err) {
+      
+//       return Promise.reject(err.status);
+//   });
+// }
+
 const vueApp = new Vue({
   el: "#main",
   mixins: [Vue2Filters.mixin],
@@ -12,6 +26,12 @@ const vueApp = new Vue({
     resume: [],
     text: {},
   },
+  components: {
+    'tabs': httpVueLoader('./components/tabs.vue'),
+    'tab': httpVueLoader('./components/tab.vue')
+    // 'tab': Vue.defineAsyncComponent( () => loadModule('./components/tab.vue'), options )
+  },
+  // template: '<tabs>hi</tabs>',
   created: function () {
     this.indexPhotos();
   },
