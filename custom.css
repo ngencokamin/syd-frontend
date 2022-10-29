@@ -1,6 +1,12 @@
 .modal-content {
-	background-color: #d3d3d3;
+	/* background-color: #d3d3d3; */
+
+	border-radius: 1rem;
 	color: black;
+}
+
+.modal-header {
+	border-bottom: 0px;
 }
 
 span, .row > p, #aboutModalTitle, #resumeModalTitle, .modal-body > p{
@@ -37,4 +43,8 @@ img {
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
+}
+
+.tabs ul {
+	justify-content: space-around;
 }

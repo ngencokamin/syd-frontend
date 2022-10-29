@@ -12,6 +12,10 @@ const vueApp = new Vue({
     resume: [],
     text: {},
   },
+  components: {
+    'tabs': httpVueLoader('./components/tabs.vue'),
+    'tab': httpVueLoader('./components/tab.vue')
+  },
   created: function () {
     this.indexPhotos();
   },

@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<!--
-	Lens by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
   <head>
     <title>Syd Kilroy</title>
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
+    <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -36,6 +32,7 @@
   <body class="is-preload-0 is-preload-1 is-preload-2">
     <!-- Main -->
     <div id="main">
+
       <!-- Header -->
       <header id="header">
         <h1>{{text.header}}</h1>
@@ -78,8 +75,6 @@
         >
           <div class="modal-content">
             <div class="modal-header text-center">
-              <h2 class="modal-title w-100" id="aboutModalTitle">About Me</h2>
-
               <button
                 type="button"
                 class="close"
@@ -90,34 +85,48 @@
               </button>
             </div>
             <div class="modal-body">
-              <p align="center" style="white-space: pre-line">{{text.about}}</p>
+              <tabs>
+                <tab name="About" :selected="true">
+                  <div class="text-center">
+                    <h2 class="w-100" style="color:black">About Me</h2>
+                  </div>
+                  <div class="modal-body text-center">
+                    <p align="center" style="white-space: pre-line">
+                      {{text.about}}
+                    </p>
+                  </div>
+                </tab>
+                <tab name="Resumé">
+                  <div class="text-center">
+                    <h2 class="w-100" style="color:black">Resumé</h2>
+                  </div>
+                  <div class="modal-body text-center">
+                    <span v-for="(item, index) in orderBy(resume, 'index', -1)">
+                      <br />
+                      <div class="container-fluid">
+                        <div class="row">
+                          <p class="col" align="left">
+                            <span style="font-weight: bold">{{item.title}},</span>
+                            {{item.employer}}
+                          </p>
+                          <p class="col" style="font-weight: bold" align="right">
+                            {{item.dates}}
+                          </p>
+                        </div>
+                        <div class="row">
+                          <p class="col" align="left">{{item.desc}}</p>
+                        </div>
+                      </div>
+                      <br v-if="index != resume.length - 1" />
+                      <hr
+                        style="width: 60%; margin: auto"
+                        v-if="index != resume.length - 1"
+                      />
+                    </span>
+                  </div>
+                </tab>
+              </tabs>
             </div>
-            <div class="modal-header text-center">
-              <h2 class="modal-title w-100" id="resumeModalTitle">Resumé</h2>
-            </div>
-            <br />
-            <span v-for="(item, index) in orderBy(resume, 'index', -1)">
-              <br />
-              <div class="container-fluid">
-                <div class="row">
-                  <p class="col" align="left">
-                    <span style="font-weight: bold">{{item.title}},</span>
-                    {{item.employer}}
-                  </p>
-                  <p class="col" style="font-weight: bold" align="right">
-                    {{item.dates}}
-                  </p>
-                </div>
-                <div class="row">
-                  <p class="col" align="left">{{item.desc}}</p>
-                </div>
-              </div>
-              <br v-if="index != resume.length - 1" />
-              <hr
-                style="width: 60%; margin: auto"
-                v-if="index != resume.length - 1"
-              />
-            </span>
           </div>
         </div>
       </div>
@@ -187,8 +196,9 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vuex"></script>
-    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script src="https://unpkg.com/http-vue-loader"></script>
+    <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
 
     <script src="./script.js"></script>
     <script src="assets/js/jquery.min.js"></script>
