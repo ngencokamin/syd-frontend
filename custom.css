@@ -1,16 +1,54 @@
+@font-face {
+	font-family: Cattedrale;
+	src: url(assets/webfonts/Cattedrale-Regular.ttf);
+  }
+
+#header > h1 {
+	font-family: Cattedrale;
+}
+
+.tab-header {
+	font-family: Cattedrale;
+	font-size: 3em;
+}
+
 .modal-content {
-	/* background-color: #d3d3d3; */
+	background-color: #282a36;
 
 	border-radius: 1rem;
-	color: black;
+	color: #f8f8f2;
+}
+
+.modal-body {
+	overflow-y: auto;
+	
 }
 
 .modal-header {
 	border-bottom: 0px;
 }
 
-span, .row > p, #aboutModalTitle, #resumeModalTitle, .modal-body > p{
-	color:black;
+.tabs ul {
+	border-bottom: none;
+}
+
+
+.tabs a {
+	color: #f8f8f2;
+
+	border-color: #f8f8f2;
+	width: 100%;
+}
+
+.tabs a:hover {
+	color: #8be9fd;
+	border-color: #8be9fd;
+}
+
+.tabs {
+	width: 100%;
+	border-bottom: 1px thick red;
+	align-content: flex-start
 }
 
 img {
@@ -46,5 +84,6 @@ img {
 }
 
 .tabs ul {
-	justify-content: space-around;
+	width: 100%;
+	justify-content: center;
 }
