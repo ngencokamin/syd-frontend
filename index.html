@@ -88,17 +88,17 @@
               <tabs>
                 <tab name="About" :selected="true">
                   <div class="text-center">
-                    <h2 class="w-100" style="color:black">About Me</h2>
+                    <h2 class="w-100 tab-header">About Me</h2>
                   </div>
                   <div class="modal-body text-center">
-                    <p align="center" style="white-space: pre-line">
+                    <p align="center" style="white-space: pre-line;">
                       {{text.about}}
                     </p>
                   </div>
                 </tab>
                 <tab name="Resumé">
                   <div class="text-center">
-                    <h2 class="w-100" style="color:black">Resumé</h2>
+                    <h2 class="w-100 tab-header">Resume</h2>
                   </div>
                   <div class="modal-body text-center">
                     <span v-for="(item, index) in orderBy(resume, 'index', -1)">
