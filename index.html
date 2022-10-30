@@ -32,6 +32,8 @@
   <body class="is-preload-0 is-preload-1 is-preload-2">
     <!-- Main -->
     <div id="main">
+      <!-- Loading Screen -->
+      <LoadingScreen v-if="isLoading"></LoadingScreen>
 
       <!-- Header -->
       <header id="header">
@@ -135,10 +137,10 @@
       <section id="thumbnails">
         <article v-if="photos.length == 0">
           <a
-            href="./images/placeholder.jpg"
+            href="./images/placeholder.png"
             class="thumbnail"
             data-position="left center"
-            ><img src="./images/placeholder.jpg"
+            ><img src="./images/placeholder.png"
           /></a>
         </article>
         <article v-else v-for="photo in orderBy(photos, 'index')">

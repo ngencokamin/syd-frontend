@@ -5,6 +5,7 @@ const vueApp = new Vue({
   el: "#main",
   mixins: [Vue2Filters.mixin],
   data: {
+    isLoading: true,
     display: "redbox",
     textLoaded: false,
     resumeLoaded: false,
@@ -14,7 +15,8 @@ const vueApp = new Vue({
   },
   components: {
     'tabs': httpVueLoader('./components/tabs.vue'),
-    'tab': httpVueLoader('./components/tab.vue')
+    'tab': httpVueLoader('./components/tab.vue'),
+    'loadingscreen': httpVueLoader('./components/LoadingScreen.vue')
   },
   created: function () {
     this.indexPhotos();
@@ -22,9 +24,12 @@ const vueApp = new Vue({
   onload: function () {},
   methods: {
     indexPhotos: function () {
+      
       axios.get("/api/photos").then((response) => {
         console.log("photos index", response);
         this.photos = response.data;
+        this.isLoading = false;
+        
         this.getText();
       });
     },
@@ -36,7 +41,6 @@ const vueApp = new Vue({
           this.text[element.name] = element.body;
         });
         this.getResume();
-
         main.initViewer();
         this.fixSlide();
       });
