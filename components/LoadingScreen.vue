@@ -15,7 +15,7 @@
 #loading {
   position: absolute;
   z-index: 1000;
-  background-color: #44475a;
+  background-color: black;
   height: 100vh;
   width: 100%;
   text-align: center;
